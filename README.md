@@ -88,18 +88,31 @@ Function               Number in jedicut              Arduino Pin            e.g
                            configuration
                            (fixed !!)
 EngineX1 Clock               2                                 D1      -- wire to -->       16   
+
 EngineX2 Clock               3                                 D2      -- wire to -->        9
+
 EngineY1 Clock               4                                 D3      -- wire to -->        14
+
 EngineY2 Clock               5                                 D4      -- wire to -->        3
+
 EngineX1 Direction           6                                 D5      -- wire to -->        1
+
 EngineX2 Direction           7                                 D6      -- wire to -->        8
+
 EngineY1 Direction           8                                 D7      -- wire to -->        7
+
 EngineY2 Direction           9                                 D8      -- wire to -->        6
+
 All Engines On/Off           -                                 D0      -- wire to -->       17; 4 and 5
+
 Heating On/off               -                                 N/A     
+
 Heating PWM                  -                                 N/A    
+
 +5V                          -                                 5V       -- wire to -->  SubD 15 Pin 15
+
 Ground                       -                                  G       -- wire to -->  SubD 15 Pin 14
+
 The Arduino configuration and pinout are at the right part of the table, this is the configuration I made to work but will depend of your actual wiring.
 Important here:
 You have to ground the arduino, at least, the +5V is for the wireless version only.
