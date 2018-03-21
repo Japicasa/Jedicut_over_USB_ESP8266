@@ -25,7 +25,7 @@ The folowing paragraph aply to my own table configuration and pinout and most of
 
 ***Make sure you have in the same folder as Jedicut commport.ini
 https://github.com/jedicut/jedicut-devices-extensions/blob/master/USBSerial/comport.ini
-or USBSerial.dll wil not know which com posrt to use***
+or USBSerial.dll will not know which com port to use***
 
 Jedicut/Tools/Comunication:
 First Select "USBSerial.dll" as 'Comunication Mode'.
@@ -72,14 +72,14 @@ In this area configue the dimensions of your table acordingly, mine is hot wire 
 
 
 Jedicut/Tools/Heating:
-My board never had a heating control so I cannot advise here very much on Jedicut Heating control. I set my table speed and tune manually the wire intensity. I control the wire intensity because I think it will control the wire temperature more acurately.... And is much to write about this. On the other hand the electronics you need for it is more complicated.
+My board never had a heating control so I cannot advise here very much on Jedicut Heating control. I set my table speed and tune manually the wire heating intensity. I control the wire intensity because I think it will control the wire temperature more acurately.... And is much to write about this. On the other hand the electronics you need for it is more complicated.
 The infrastucture for Heating control is in the driver and in the arduino code if you feel brave you can use the TX or RX pins of D1-mini as PWM output (in the wire less version). My recomendation for upgrading this SW would be use another D1-mini as an webserver that would receive Heating commands... Something todo... But as today Heating comands are just ignored.
 
 # The Arduino Side
 
 To manage the Arduino code you need Arduino IDE: https://www.arduino.cc/en/Main/Software (I used 1.8.3)
 And the Esp8266 board https://github.com/esp8266/Arduino adde in the boards manager.
-Please do not forget to install in your PC the painfull to install driver for th CH340 usb-to-uart chip
+Please do not forget to install in your PC the painfull to install driver for th CH340 usb-to-uart chip.
 Then you need one or two WeMos D1-mini https://es.aliexpress.com/store/product/D1-mini-Mini-NodeMcu-4M-bytes-Lua-WIFI-Internet-of-Things-development-board-based-ESP8266/1331105_32529101036.html?spm=a219c.12010612.0.0.3d8e6607QP3g1u
 
 First the pinout for controlling the board
@@ -100,8 +100,8 @@ Heating On/off               -                                 N/A
 Heating PWM                  -                                 N/A    
 +5V                          -                                 5V       -- wire to -->  SubD 15 Pin 15
 Ground                       -                                  G       -- wire to -->  SubD 15 Pin 14
-This is the right part of the table, this is the configuration I made to work but will depende of your actual wiring.
+The Arduino configuration and pinout are at the right part of the table, this is the configuration I made to work but will depend of your actual wiring.
 Important here:
-You have to ground the arduino at least (the +5V) is for the wireless version.
+You have to ground the arduino, at least, the +5V is for the wireless version only.
 Also you have to be aware that ESP8266 and the D1-mini aswell is a 3,3V chip so its output '1' will be 3,3V very most of board will interpet this as a genuine '1' if you experience problems you can install a logic level shifter chip (0,5Eur) but I do not recommend as a start.
 
