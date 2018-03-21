@@ -23,6 +23,10 @@ The extension I used was the USBSerial.dll as the Jedicut extension. By Using it
 # Jedicut Configuration
 The folowing paragraph aply to my own table configuration and pinout and most of them. Obviously you will need to acomodate to your board and table peculiars.
 
+***Make sure you have in the same folder as Jedicut commport.ini
+https://github.com/jedicut/jedicut-devices-extensions/blob/master/USBSerial/comport.ini
+or USBSerial.dll wil not know which com posrt to use***
+
 Jedicut/Tools/Comunication:
 First Select "USBSerial.dll" as 'Comunication Mode'.
 
@@ -48,7 +52,8 @@ MotorY1 Direction 8
 
 MotorY2 Direction 9 
 
-This is because Jedicut is just transmiting this commands over the Serial and it is the Arduino that decodes these commands in the  phisical motors connections.
+This is because Jedicut is just transmiting this commands over the Serial and it is the Arduino that decodes these commands in the  phisical motors connections. See the thread https://www.jedicut.com/forums/viewtopic.php?f=6&t=8582
+Maybe you already were there...
 
 The rest of parameters in this page can be ignored.
 
@@ -65,21 +70,38 @@ This is implemented in the arduino code so when a Fx when x is between 2 and 254
 
 In this area configue the dimensions of your table acordingly, mine is hot wire length 912 mm and Length of X axis 400 mm.
 
-First of all is my board never had a heating control so I cannot advise here very much on Jedicut Heating control. I set my table speed and tune manually the wire intensity. I control the wire intensity because I think it will control the wire temperature more acurately.... And is much to write about this. On the other hand the electronics you need for it is more complicated.
-Function               Number in jedicut        Arduino Pin            e.g. TB6560 SubD25 pin
+
+Jedicut/Tools/Heating:
+My board never had a heating control so I cannot advise here very much on Jedicut Heating control. I set my table speed and tune manually the wire intensity. I control the wire intensity because I think it will control the wire temperature more acurately.... And is much to write about this. On the other hand the electronics you need for it is more complicated.
+The infrastucture for Heating control is in the driver and in the arduino code if you feel brave you can use the TX or RX pins of D1-mini as PWM output (in the wire less version). My recomendation for upgrading this SW would be use another D1-mini as an webserver that would receive Heating commands... Something todo... But as today Heating comands are just ignored.
+
+# The Arduino Side
+
+To manage the Arduino code you need Arduino IDE: https://www.arduino.cc/en/Main/Software (I used 1.8.3)
+And the Esp8266 board https://github.com/esp8266/Arduino adde in the boards manager.
+Please do not forget to install in your PC the painfull to install driver for th CH340 usb-to-uart chip
+Then you need one or two WeMos D1-mini https://es.aliexpress.com/store/product/D1-mini-Mini-NodeMcu-4M-bytes-Lua-WIFI-Internet-of-Things-development-board-based-ESP8266/1331105_32529101036.html?spm=a219c.12010612.0.0.3d8e6607QP3g1u
+
+First the pinout for controlling the board
+
+Function               Number in jedicut              Arduino Pin            e.g. TB6560 SubD25 pin
                            configuration
                            (fixed !!)
-EngineX1 Clock               2                               D1      -- wire to -->       16   
-EngineX2 Clock               3                                 D2     -- wire to -->        9
+EngineX1 Clock               2                                 D1      -- wire to -->       16   
+EngineX2 Clock               3                                 D2      -- wire to -->        9
 EngineY1 Clock               4                                 D3      -- wire to -->        14
-EngineY2 Clock          5                                 D4     -- wire to -->        3
-EngineX1 Direction      6                                 D5      -- wire to -->        1
-EngineX2 Direction      7                                 D6     -- wire to -->        8
-EngineY1 Direction      8                                 D7     -- wire to -->        7
-EngineY2 Direction      9                                 D8      -- wire to -->        6
-All Engines On/Off      -                                 D0      -- wire to -->       17; 4 and 5
-Heating On/off          -                                 N/A     
-Heating PWM             -                                 N/A    
-+5V                     -                                 5V       -- wire to -->  SubD 15 Pin 15
-Ground                  -                                  G        -- wire to -->  SubD 15 Pin 14
-(this is to be configured in Jedicut/Tools/Comunication).
+EngineY2 Clock               5                                 D4      -- wire to -->        3
+EngineX1 Direction           6                                 D5      -- wire to -->        1
+EngineX2 Direction           7                                 D6      -- wire to -->        8
+EngineY1 Direction           8                                 D7      -- wire to -->        7
+EngineY2 Direction           9                                 D8      -- wire to -->        6
+All Engines On/Off           -                                 D0      -- wire to -->       17; 4 and 5
+Heating On/off               -                                 N/A     
+Heating PWM                  -                                 N/A    
++5V                          -                                 5V       -- wire to -->  SubD 15 Pin 15
+Ground                       -                                  G       -- wire to -->  SubD 15 Pin 14
+This is the right part of the table, this is the configuration I made to work but will depende of your actual wiring.
+Important here:
+You have to ground the arduino at least (the +5V) is for the wireless version.
+Also you have to be aware that ESP8266 and the D1-mini aswell is a 3,3V chip so its output '1' will be 3,3V very most of board will interpet this as a genuine '1' if you experience problems you can install a logic level shifter chip (0,5Eur) but I do not recommend as a start.
+
