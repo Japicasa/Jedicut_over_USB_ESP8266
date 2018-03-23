@@ -85,7 +85,7 @@ To manage the Arduino code you need Arduino IDE: https://www.arduino.cc/en/Main/
 And the Esp8266 board https://github.com/esp8266/Arduino adde in the boards manager. You MUST use Arduino core version 2.4.0 or higher. Older versions did not have properly implemented interrupts while using wifi.
 Please do not forget to install in your PC the painfull to install driver for the CH340 usb-to-uart chip. (I leave here a link to Arduino forum for you to decide where you install it from https://forum.arduino.cc/index.php?topic=397368.0) or https://wiki.wemos.cc/downloads. 
 
-Then you need one or two WeMos D1-mini 
+Then you need one or two WeMos D1-mini or equivalent ESP8266 based board.
 
 https://es.aliexpress.com/store/product/D1-mini-Mini-NodeMcu-4M-bytes-Lua-WIFI-Internet-of-Things-development-board-based-ESP8266/1331105_32529101036.html?spm=a219c.12010612.0.0.3d8e6607QP3g1u
 
