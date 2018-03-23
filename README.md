@@ -1,5 +1,8 @@
 # Jedicut_over_USB_ESP8266
-Extension pluging to use Jedicut with SerialUSB.dll and an Arduino ESP8266
+
+Jedicut is a famous "FREE" CNC cutting SW developed By Jerome: https://www.jedicut.com/
+
+This SW is an extension pluging to use Jedicut with SerialUSB.dll and an Arduino ESP8266
 
 ESP8266 chip has brought to Arduino world a new perspective for connectivity.
 I have been a user of JEDICUT since 2011, very successfully, for hot wire cutting the foam wings of my aeromodels. Most of CNC controllers, and Jedicut was, only had a parallel port I/F and that is the way I connected my board... It has been since summer 2015 that I bumped somehow to the ESP8266 environment.
