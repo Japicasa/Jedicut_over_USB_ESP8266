@@ -77,9 +77,6 @@ void handleCommand(){
               break;
             }
           default: // Pause (value in Jedicut) = pause in tenths of second
-            //delay(100*(256-val));
-            //Serial.print(cmdArray[arrayIdxRead + 1]);
-            //Serial.println("y");
             timemark=(100*(256-val))+millis();
            
              break;
