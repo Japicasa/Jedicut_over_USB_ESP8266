@@ -24,7 +24,7 @@ void loop() {
     }
     
   }
-  //isrActive = false;
+  //Pause management
     if (timemark > 0) {
       isrActive = true;
       if (millis() > timemark) {

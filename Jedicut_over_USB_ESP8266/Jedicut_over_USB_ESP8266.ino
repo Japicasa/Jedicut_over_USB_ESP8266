@@ -1,5 +1,5 @@
 /* Copyright 2013 Martin
-    Modified 2018 Javier Hernandez
+    Modified 2018 Javier Hernandez.
     This file is part of jedicutplugin.
     Jedicut_over_USB_ESP8266.ino is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@ Ground                     -                                  G        -- wire t
 ////// Todo: speed control thru USB
 
 
-//int MICRODELAY=90; //   period of pulses in microsecond, change this to change desired speed, the limit: overlapping interrupts...
+////You are likely to make changes here
 int tickPeriod=65;      //   motor pulses lenght, in microsecs, change this to suit your board performance
 int stepmin_period = 200;              //microseconds, Fast Speed (here is 5.000Hz pulse rate)  change this to change desired speed, the lowest limit: overlapping interrupts, vibrations in the table... 
 int stepmax_period = 500;           //microseconds,  Cut speed (here is 1.000Hz pulse rate)   change this to change desired speed, the limit: your patience as speed will go ... 
@@ -56,5 +56,4 @@ volatile bool isrActive = false;
 
 unsigned int val = 0; // The command parameter value
 int pines[]={D1, D2, D3, D4, D5, D6, D7, D8};
-//unsigned char BufferRecep[2]={0};
 int timemark=0;
