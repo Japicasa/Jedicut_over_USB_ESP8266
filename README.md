@@ -136,7 +136,7 @@ int =1000;              //microseconds, Fast Speed (here is 1.000 Hz pulse rate)
 
 int stepmax_period = 2000;           //microseconds,  Cut speed (here is 500 Hz pulse rate)   change this to change desired speed, the limit: your patience as speed will go ... 
 
-These values were acceptable with my old 32bit AMD proccesor   they could be as low as 190 which corresponds moroe or less to 5.100 Hz in My I3 64 bit portable (believe it or not).
+These values were acceptable with my old 32bit AMD proccesor bur period could be as low as 190 which corresponds more or less to 5.100 Hz in My I3 64 bit portable Win10 (believe it or not).
 
 One of the impresive features of ESP8266 chip is it has got a clock speed of 80MHz (and 4MB Flash Memory) versus the ATmega Arduinos which are in the range of 16MHz of the Nano, so I have not seen a Nano running this SW but it would be slower indeed. 
 
